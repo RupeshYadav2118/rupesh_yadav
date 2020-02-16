@@ -1,0 +1,62 @@
+import java.util.Scanner;
+public class validname {
+    public static int valid(String str){
+        int i,j=0,k=0,p=0,r=0,f=0,g=0,l;
+        int c=0,flag=0;
+        l=str.length();
+        int a[]=new int[2];
+        char ch;
+        for(i=0;i<l;i++)
+        {
+            ch=str.charAt(i);
+            if(ch=='A')
+                j++;
+                else
+                if(ch=='E')
+                k++;
+                else
+                if(ch=='I')
+                p++;
+                else
+                if(ch=='O')
+                r++; 
+                else
+                if(ch=='U')
+                f++;
+               else
+              if(ch=='s'&&j<2)
+              { 
+                  a[j]=i;
+                  j++;
+                }
+         }
+         if(j>1||k>1||p>1||r>1||f>1)
+         flag=1;
+         for(i=a[0];i<l;i++)
+         {
+             ch=str.charAt(i);
+             if(ch=='T')
+             c++;
+         }
+         int x=flag+c;
+        return x;
+    }
+    public static void main(String[] arg){
+    Scanner sc=new Scanner(System.in);
+    String s;
+    int b=100, n=0;
+    s=sc.next();
+    for(int i=0;i<s.length();i++)
+    {  if(s.charAt(i)>='A' && s.charAt(i)<='Z')
+       n++;
+    }
+    if(n==0)
+    System.out.println("enter in Capital letters only");
+    else
+     b=valid(s);
+     
+    if(b!=0)
+    System.out.println("Invalid");
+    else
+    System.out.println("valid");
+}}
